@@ -25,7 +25,7 @@ $V_1=\begin{cases}
 \psi_2(e^{r}-u)<0 & wp & p\\
 \psi_2(e^{r}-d)<0 & wp & 1-p
 \end{cases}$  
-So we have that $P(V_1 \leq 0)=1, P(V_0=0) and P(V_1 < 0) > 0$. There is arbitrage.
+So we have that $P(V_1 \leq 0)=1, P(V_0=0) and P(V_1 < 0) > 0$. There is arbitrage (for the seller).
 
 -----
 
