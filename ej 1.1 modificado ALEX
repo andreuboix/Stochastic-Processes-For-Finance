@@ -1,0 +1,54 @@
+Let us first suppose that the model is free of arbitrage. Then, we could construct an arbitrage strategy.
+
+At first, we start with no money: $0 = V_0 = \phi_1 S_0 + \psi_1$. Then, $\phi_1 S_0 = -\psi_1$.
+
+As the portfolio in the $N$-period binomial model is self-financing, we have that $V_0 = \phi_1 S_0 + \psi_1 = \phi_2 S_0 + \psi_2$. For that reason, it is also true that $\phi_2 S_0 = -\psi_2$.
+
+
+Hence, $V_1 = \phi_2 S_1 + \psi_2 e^r$ and, substituting for $\phi_2 S_0 = -\psi_2$ we get 
+$V_1=\begin{cases}
+\psi_2(e^{r}-u) & wp & p\\
+\psi_2(e^{r}-d) & wp & 1-p
+\end{cases}$  
+There is always a non-negative probability of losing money if $e^r \leq d$ or $e^r \geq u$.
+
+-----
+If $e^r>u$ then:  
+$V_1=\begin{cases}
+\psi_2(e^{r}-u)>0 & wp & p\\
+\psi_2(e^{r}-d)>0 & wp & 1-p
+\end{cases}$  
+So we have that $P(V_1 \geq 0)=1, P(V_0=0) and P(V_1 > 0) > 0$. There is arbitrage.
+
+If $e^r<d>$ then:  
+$V_1=\begin{cases}
+\psi_2(e^{r}-u)<0 & wp & p\\
+\psi_2(e^{r}-d)<0 & wp & 1-p
+\end{cases}$  
+So we have that $P(V_1 \leq 0)=1, P(V_0=0) and P(V_1 < 0) > 0$. There is arbitrage.
+
+-----
+
+__Arbitrage strategy:__  
+
+-----
+Let's see the arbitrage strategies if $e^r \geq u$ (Case 1) or $e^r \leq d$ (Case 2)
+
+Case 1 ($e^r \geq u (>d)$)
+1. We have $V_0=0$
+2. At $t=0$ we borrow an asset and sell it for $S_0$.
+3. Invest $S_0$ at rate $r=log(2/3)$
+4. At $t=1$ we pay back the asset. We get $V_1 = S_0 e^{r} - S_0 u \geq 0$ if the asset goes up, else $V_1 = S_0 e^{r} - S_0 d \geq 0$
+
+
+Case 2 ($e^r \leq d (<u)$)
+1. We have $V_0=0$
+2. At $t=0$ we borrow $S_0$ and buy an asset.
+3. At $t=1$ sell the asset and pay back the debt. We get $V_1 = S_0 d - S_0 e^{r} \geq 0$  if the asset goes down, else $V_1 = S_0 u - S_0 e^{r} \geq 0$
+-----
+
+Note that if $e^r \geq u (<d)$ then (without any money) we can borrow an asset and sell it for $S_0$, then invest the money. At $t=1$ we have to pay back the asset, so at least we would get $S_0 e^{r} - S_0 u \geq 0$.  
+
+If $e^r \leq d (<u)$ then (without any money) we can borrow $S_0$ and buy an asset. At $t=1$ we have to pay back the money, so at least we would get $S_0 d - S_0 e^{r} \geq 0$.
+
+As we have just seen, there is arbitrage if an only if $e^r \geq u$ or $ e^r \leq d$. In this case, we get that $e^r = \frac{2}{3} \in (d,u)=(\frac{1}{6}, \frac{5}{6})$
