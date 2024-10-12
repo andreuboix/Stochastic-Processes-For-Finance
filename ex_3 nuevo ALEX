@@ -1,0 +1,33 @@
+Let $C=C(S_0,...,S_N)$ be the pay-off of the contract.  
+
+The European Call Option has a pay-off $C_n = (S_N-K)^{+} = max(S_N-K,0)$  
+At the same time, the European Put Option has a pay-off $P_n = (K-S_N)^{+} = max(K-S_N,0)$
+
+
+Firstly, we have to know the values of $C_n$ and $P_n$. For that, we have to get the fair price of the contract with pay-off $C$ at time n, this is:
+$V_n=e^{-r(N-n)}E_q[C(S_0,...,S_N)|\mathcal{F}_n]$.  
+
+Hence, we have:  
+$C_n = e^{-(N-n)}E_q[(S_N-K)^+|\mathcal{F}_n]$  
+$P_n=e^{-r(N-n)}E_q[(K-S_N)^+|\mathcal{F}_n]$ 
+
+Let us now compute $C_n-P_n$:  
+$C_n - P_n = e^{-r(N-n)}(\mathbb{E}_q[(S_N-K)^+|\mathcal{F}_n] - (\mathbb{E}_q[(K-S_N)^+|\mathcal{F}_n])$  
+
+By lienarity of $\mathbb{E}_q$: $C_n - P_n =  e^{-r(N-n)}(\mathbb{E}_q[(S_N-K)^{+}-(K-S_N)^{+} | \mathcal{F}_n])$.
+
+What is the value of $(S_N-K)^{+}-(K-S_N)^{+}$ ?  
+If $S_N \geq K$, then  $(K-S_N)^+ = 0$ and $(S_N-K)^{+}-(K-S_N)^{+} = S_N-K$. Also, if $S_N < K$, then $(S_N-K)^+ = 0$. 
+So the value is $(S_N-K)^{+}-(K-S_N)^{+} = S_N-K$.  
+
+We continue:
+$C_n - P_n = e^{-r(N-n)} \mathbb{E}_q[S_N-K|\mathcal{F}_n] $.  
+Because $K$ is constant; $ e^{-r(N-n)} \mathbb{E}_q[S_N-K|\mathcal{F}_n] = e^{-r(N-n)} \mathbb{E}_q[S_N|\mathcal{F}_n] - K e^{-r(N-n)}$  
+
+Finally, taking into account that $(\tilde S_n)$ is a martingale and that $e^N (\tilde S_N) = S_N$ we get that:  
+$C_n - P_n = e^{-r(N-n)} \mathbb{E}_q[e^{rN}S_N e^{-rN} | \mathcal{F}_n] - K e^{-r(N-n)}$  
+
+Now, we will add and then remove $e^{rN}$ to simplify calculations.  
+$C_n - P_n = e^{-r(N-n)} e^{-N} \mathbb{E}_q[\tilde S_N|\mathcal{F}_n] - K e^{-r(N-n)} = e^{rn} \tilde S_N - K e^{-r(N-n)} = S_n - K e^{-r(N-n)}$ 
+
+We ended up showing that $C_n - P_n = S_n - K e^{-r(N-n)}$
